@@ -2,7 +2,7 @@
 
 ![](https://blog.ikomia.com/wp-content/uploads/2021/02/yolo.png)
 
-Ikomia plugin to load Deep Learning image dataset in YOLO format. Such plugin converts a YOLO format dataset to the Ikomia format so that it can be connected to any Deep Learning training algorithms dedicated to object detection.
+Ikomia plugin to load Deep Learning image dataset in YOLO format. It converts the dataset to the Ikomia format so that it can be connected to any Deep Learning training algorithms dedicated to object detection.
 
 ### How to use it?
 Here are the steps:
