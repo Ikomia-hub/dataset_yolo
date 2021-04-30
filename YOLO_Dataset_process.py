@@ -39,7 +39,7 @@ class YOLO_DatasetProcess(core.CProtocolTask):
     def __init__(self, name, param):
         core.CProtocolTask.__init__(self, name)
         # Add input/output of the process here
-        self.addOutput(datasetio.IkDatasetIO(dataprocess.DatasetFormat.YOLO))
+        self.addOutput(datasetio.IkDatasetIO("yolo"))
         self.addOutput(dataprocess.CDblFeatureIO())
 
         # Create parameters class
@@ -107,7 +107,7 @@ class YOLO_DatasetProcessFactory(dataprocess.CProcessFactory):
         # relative path -> as displayed in Ikomia application process tree
         self.info.path = "Plugins/Python/Dataset"
         self.info.iconPath = "icons/yolo.png"
-        self.info.version = "1.0.0"
+        self.info.version = "1.1.0"
         self.info.keywords = "yolo,dataset,annotation,train,dnn"
 
     def create(self, param=None):
