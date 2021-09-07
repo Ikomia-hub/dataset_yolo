@@ -1,6 +1,4 @@
 from ikomia import dataprocess
-import YOLO_Dataset_process as processMod
-import YOLO_Dataset_widget as widgetMod
 
 
 # --------------------
@@ -13,9 +11,11 @@ class YOLO_Dataset(dataprocess.CPluginProcessInterface):
         dataprocess.CPluginProcessInterface.__init__(self)
 
     def getProcessFactory(self):
+        from YOLO_Dataset.YOLO_Dataset_process import YOLO_DatasetProcessFactory
         # Instantiate process object
-        return processMod.YOLO_DatasetProcessFactory()
+        return YOLO_DatasetProcessFactory()
 
     def getWidgetFactory(self):
+        from YOLO_Dataset.YOLO_Dataset_widget import YOLO_DatasetWidgetFactory
         # Instantiate associated widget object
-        return widgetMod.YOLO_DatasetWidgetFactory()
+        return YOLO_DatasetWidgetFactory()
