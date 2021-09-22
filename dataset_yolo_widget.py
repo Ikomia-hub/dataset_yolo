@@ -1,6 +1,6 @@
 from ikomia import utils, core, dataprocess
 from ikomia.utils import pyqtutils, qtconversion
-from YOLO_Dataset.YOLO_Dataset_process import YOLO_DatasetParam
+from dataset_yolo.dataset_yolo_process import DatasetYoloParam
 # PyQt GUI framework
 from PyQt5.QtWidgets import *
 
@@ -9,13 +9,13 @@ from PyQt5.QtWidgets import *
 # - Class which implements widget associated with the process
 # - Inherits core.CProtocolTaskWidget from Ikomia API
 # --------------------
-class YOLO_DatasetWidget(core.CWorkflowTaskWidget):
+class DatasetYoloWidget(core.CWorkflowTaskWidget):
 
     def __init__(self, param, parent):
         core.CWorkflowTaskWidget.__init__(self, parent)
 
         if param is None:
-            self.parameters = YOLO_DatasetParam()
+            self.parameters = DatasetYoloParam()
         else:
             self.parameters = param
 
@@ -50,13 +50,13 @@ class YOLO_DatasetWidget(core.CWorkflowTaskWidget):
 # - Factory class to build process widget object
 # - Inherits dataprocess.CWidgetFactory from Ikomia API
 # --------------------
-class YOLO_DatasetWidgetFactory(dataprocess.CWidgetFactory):
+class DatasetYoloWidgetFactory(dataprocess.CWidgetFactory):
 
     def __init__(self):
         dataprocess.CWidgetFactory.__init__(self)
         # Set the name of the process -> it must be the same as the one declared in the process factory class
-        self.name = "YOLO_Dataset"
+        self.name = "dataset_yolo"
 
     def create(self, param):
         # Create widget object
-        return YOLO_DatasetWidget(param, None)
+        return DatasetYoloWidget(param, None)

@@ -7,7 +7,7 @@ import copy
 # - Class to handle the process parameters
 # - Inherits core.CProtocolTaskParam from Ikomia API
 # --------------------
-class YOLO_DatasetParam(core.CWorkflowTaskParam):
+class DatasetYoloParam(core.CWorkflowTaskParam):
 
     def __init__(self):
         core.CWorkflowTaskParam.__init__(self)
@@ -34,7 +34,7 @@ class YOLO_DatasetParam(core.CWorkflowTaskParam):
 # - Class which implements the process
 # - Inherits core.CProtocolTask or derived from Ikomia API
 # --------------------
-class YOLO_DatasetProcess(core.CWorkflowTask):
+class DatasetYolo(core.CWorkflowTask):
 
     def __init__(self, name, param):
         core.CWorkflowTask.__init__(self, name)
@@ -44,7 +44,7 @@ class YOLO_DatasetProcess(core.CWorkflowTask):
 
         # Create parameters class
         if param is None:
-            self.setParam(YOLO_DatasetParam())
+            self.setParam(DatasetYoloParam())
         else:
             self.setParam(copy.deepcopy(param))
 
@@ -88,12 +88,12 @@ class YOLO_DatasetProcess(core.CWorkflowTask):
 # - Factory class to build process object
 # - Inherits dataprocess.CProcessFactory from Ikomia API
 # --------------------
-class YOLO_DatasetProcessFactory(dataprocess.CTaskFactory):
+class DatasetYoloFactory(dataprocess.CTaskFactory):
 
     def __init__(self):
         dataprocess.CTaskFactory.__init__(self)
         # Set process information as string here
-        self.info.name = "YOLO_Dataset"
+        self.info.name = "dataset_yolo"
         self.info.shortDescription = "Load YOLO dataset"
         self.info.description = "Load YOLO dataset. " \
                                 "This plugin converts a given dataset in YOLO format to Ikomia format. " \
@@ -112,4 +112,4 @@ class YOLO_DatasetProcessFactory(dataprocess.CTaskFactory):
 
     def create(self, param=None):
         # Create process object
-        return YOLO_DatasetProcess(self.info.name, param)
+        return DatasetYolo(self.info.name, param)
