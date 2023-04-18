@@ -12,19 +12,19 @@ class DatasetYoloParam(core.CWorkflowTaskParam):
     def __init__(self):
         core.CWorkflowTaskParam.__init__(self)
         # Place default value initialization here
-        self.data_folder_path = ""
+        self.dataset_folder = ""
         self.class_file_path = ""
 
     def set_values(self, param_map):
         # Set parameters values from Ikomia application
         # Parameters values are stored as string and accessible like a python dict
-        self.data_folder_path = param_map["data_folder_path"]
+        self.dataset_folder = param_map["dataset_folder"]
         self.class_file_path = param_map["class_file_path"]
 
     def get_values(self):
         # Send parameters values to Ikomia application
         # Create the specific dict structure (string container)
-        param_map = {"data_folder_path": self.data_folder_path,
+        param_map = {"dataset_folder": self.dataset_folder,
                      "class_file_path": self.class_file_path}
         return param_map
 
@@ -62,7 +62,7 @@ class DatasetYolo(core.CWorkflowTask):
 
         # Get dataset output :
         output = self.get_output(0)
-        output.data = dataset.load_yolo_dataset(param.data_folder_path, param.class_file_path)
+        output.data = dataset.load_yolo_dataset(param.dataset_folder, param.class_file_path)
         output.has_bckgnd_class = False
 
         # Class labels output

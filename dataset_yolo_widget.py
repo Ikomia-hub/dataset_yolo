@@ -23,7 +23,7 @@ class DatasetYoloWidget(core.CWorkflowTaskWidget):
         self.grid_layout = QGridLayout()
 
         self.browse_folder = pyqtutils.append_browse_file(grid_layout=self.grid_layout, label="YOLO dataset folder",
-                                                          path=self.parameters.data_folder_path,
+                                                          path=self.parameters.dataset_folder,
                                                           mode=QFileDialog.Directory)
 
         self.browse_class_file = pyqtutils.append_browse_file(grid_layout=self.grid_layout, label="YOLO classes file",
@@ -39,7 +39,7 @@ class DatasetYoloWidget(core.CWorkflowTaskWidget):
     def on_apply(self):
         # Apply button clicked slot
         # Get parameters from widget
-        self.parameters.data_folder_path = self.browse_folder.path
+        self.parameters.dataset_folder = self.browse_folder.path
         self.parameters.class_file_path = self.browse_class_file.path
 
         # Send signal to launch the process
