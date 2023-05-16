@@ -102,7 +102,7 @@ class DatasetYoloFactory(dataprocess.CTaskFactory):
         self.info.authors = "Ikomia team"
         self.info.license = "MIT License"
         self.info.documentation_link = "https://pjreddie.com/darknet/yolo/"
-        self.info.repo = "https://github.com/Ikomia-dev"
+        self.info.repository = "https://github.com/Ikomia-dev"
         # relative path -> as displayed in Ikomia application process tree
         self.info.path = "Plugins/Python/Dataset"
         self.info.icon_path = "icons/yolo.png"
