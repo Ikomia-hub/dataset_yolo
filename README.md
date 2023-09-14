@@ -21,8 +21,7 @@
 
 Load YOLO dataset. This plugin converts a given dataset in YOLO format to Ikomia format. Once loaded, all images can be visualized with their respective annotations. Then, any training algorithms from the Ikomia marketplace can be connected to this converter.
 
-[Insert illustrative image here. Image must be accessible publicly, in algorithm Github repository for example.
-<img src="images/illustration.png"  alt="Illustrative image" width="30%" height="30%">]
+![Example](https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F3400968%2Fbcdae0b57021d6ac3e86a9aa2e8c4b08%2Fts_detections.gif?generation=1581700736851192&alt=media)
 
 ## :rocket: Use with Ikomia API
 
@@ -36,21 +35,28 @@ pip install ikomia
 
 #### 2. Create your workflow
 
-[Change the sample image URL to fit algorithm purpose]
 
 ```python
-import ikomia
 from ikomia.dataprocess.workflow import Workflow
 
 # Init your workflow
 wf = Workflow()
 
-# Add algorithm
-algo = wf.add_task(name="dataset_yolo", auto_connect=True)
+# Add dataset loader
+dataset = wf.add_task(name="dataset_yolo", auto_connect=False)
 
-# Run on your image  
-wf.run_on(url="example_image.png")
+# Set parameters
+dataset.set_parameters({'dataset_folder': 'path/to/images/and/annotations',
+                        'class_file': 'path/to/classes.names'})
+
+# Add training algorithm for object detection
+train_algo = wf.add_task(name="train_yolo_v8", auto_connect=True)
+
+# Run whole workflow
+wf.run()
 ```
+
+Example of YOLO dataset : [traffic signs](https://www.kaggle.com/datasets/valentynsichkar/traffic-signs-dataset-in-yolo-format?resource=download).
 
 ## :sunny: Use with Ikomia Studio
 
@@ -62,30 +68,8 @@ Ikomia Studio offers a friendly UI with the same features as the API.
 
 ## :pencil: Set algorithm parameters
 
-[Explain each algorithm parameters]
-
-[Change the sample image URL to fit algorithm purpose]
-
-```python
-import ikomia
-from ikomia.dataprocess.workflow import Workflow
-
-# Init your workflow
-wf = Workflow()
-
-# Add algorithm
-algo = wf.add_task(name="dataset_yolo", auto_connect=True)
-
-algo.set_parameters({
-    "param1": "value1",
-    "param2": "value2",
-    ...
-})
-
-# Run on your image  
-wf.run_on(url="example_image.png")
-
-```
+- **dataset_folder** (str): Path to the dataset folder.
+- **class_file** (str): Path to text file containing class names.
 
 ## :mag: Explore algorithm outputs
 
@@ -105,13 +89,10 @@ algo = wf.add_task(name="dataset_yolo", auto_connect=True)
 wf.run_on(url="example_image.png")
 
 # Iterate over outputs
-for output in algo.get_outputs()
+for output in algo.get_outputs():
     # Print information
     print(output)
     # Export it to JSON
     output.to_json()
 ```
 
-## :fast_forward: Advanced usage 
-
-[optional]
