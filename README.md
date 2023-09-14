@@ -71,6 +71,7 @@ Ikomia Studio offers a friendly UI with the same features as the API.
 - **dataset_folder** (str): Path to the dataset folder.
 - **class_file** (str): Path to text file containing class names.
 
+*Note*: parameter key and value should be in **string format** when added to the dictionary.
 ## :mag: Explore algorithm outputs
 
 Every algorithm produces specific outputs, yet they can be explored them the same way using the Ikomia API. For a more in-depth understanding of managing algorithm outputs, please refer to the [documentation](https://ikomia-dev.github.io/python-api-documentation/advanced_guide/IO_management.html).
