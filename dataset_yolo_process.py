@@ -94,15 +94,10 @@ class DatasetYoloFactory(dataprocess.CTaskFactory):
         # Set process information as string here
         self.info.name = "dataset_yolo"
         self.info.short_description = "Load YOLO dataset"
-        self.info.description = "Load YOLO dataset. " \
-                                "This plugin converts a given dataset in YOLO format to Ikomia format. " \
-                                "Once loaded, all images can be visualized with their respective annotations. " \
-                                "Then, any training algorithms from the Ikomia marketplace can be connected " \
-                                "to this converter."
         self.info.authors = "Ikomia team"
         self.info.license = "MIT License"
         self.info.documentation_link = "https://pjreddie.com/darknet/yolo/"
-        self.info.repository = "https://github.com/Ikomia-dev"
+        self.info.repository = "https://github.com/Ikomia-hub/dataset_yolo"
         # relative path -> as displayed in Ikomia application process tree
         self.info.path = "Plugins/Python/Dataset"
         self.info.icon_path = "icons/yolo.png"
