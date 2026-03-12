@@ -101,7 +101,8 @@ class DatasetYoloFactory(dataprocess.CTaskFactory):
         # relative path -> as displayed in Ikomia application process tree
         self.info.path = "Plugins/Python/Dataset"
         self.info.icon_path = "icons/yolo.png"
-        self.info.version = "1.1.1"
+        self.info.version = "1.2.0"
+        self.info.max_python_version = "3.13"
         self.info.keywords = "yolo,dataset,annotation,train,dnn"
         self.info.algo_type = core.AlgoType.DATASET
         self.info.algo_tasks = "OBJECT_DETECTION"

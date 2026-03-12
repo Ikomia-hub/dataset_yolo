@@ -2,7 +2,7 @@ from ikomia import utils, core, dataprocess
 from ikomia.utils import pyqtutils, qtconversion
 from dataset_yolo.dataset_yolo_process import DatasetYoloParam
 # PyQt GUI framework
-from PyQt5.QtWidgets import *
+from PyQt6.QtWidgets import *
 
 
 # --------------------
@@ -24,11 +24,11 @@ class DatasetYoloWidget(core.CWorkflowTaskWidget):
 
         self.browse_folder = pyqtutils.append_browse_file(grid_layout=self.grid_layout, label="YOLO dataset folder",
                                                           path=self.parameters.dataset_folder,
-                                                          mode=QFileDialog.Directory)
+                                                          mode=QFileDialog.FileMode.Directory)
 
         self.browse_class_file = pyqtutils.append_browse_file(grid_layout=self.grid_layout, label="YOLO classes file",
                                                               path=self.parameters.class_file,
-                                                              mode=QFileDialog.ExistingFile)
+                                                              mode=QFileDialog.FileMode.ExistingFile)
 
         # PyQt -> Qt wrapping
         layout_ptr = qtconversion.PyQtToQt(self.grid_layout)
